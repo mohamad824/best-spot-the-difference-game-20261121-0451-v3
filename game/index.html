@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gem Rush — Spot the Difference</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div class="hud-left">
+      <span id="level-pill" class="pill">LEVEL 1 · CRYSTAL TEMPLE</span>
+      <span id="found-count" class="found-count">0/5 FOUND</span>
+    </div>
+    <div class="hud-center">
+      <span id="counter" class="counter">5 LEFT</span>
+      <span id="dots" class="dots"></span>
+    </div>
+    <div class="hud-right">
+      <span class="timer-wrap"><span id="timer-text">01:30</span><span class="timer-track"><span id="timer-bar"></span></span></span>
+      <span id="score-text" class="score">0</span>
+      <span id="streak-text" class="streak">STREAK ×0</span>
+      <span id="hearts" class="hearts">♥♥♥</span>
+      <button id="hint-btn" class="btn small">💡 Hint (3)</button>
+      <button id="mute-btn" class="btn small">🔊 Sound On</button>
+      <button id="pause-btn" class="btn small">⏸ Pause</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <div class="panel-col">
+      <div class="panel-label original">◀ ORIGINAL</div>
+      <canvas id="panel-left" width="620" height="440"></canvas>
+    </div>
+    <div class="panel-col">
+      <div class="panel-label changed">CHANGED ▶</div>
+      <canvas id="panel-right" width="620" height="440"></canvas>
+    </div>
+    <div id="lens"><canvas></canvas></div>
+  </main>
+
+  <footer id="foundbar">
+    <span class="found-label">FOUND:</span>
+    <span id="found-list" class="found-list"></span>
+    <span class="keys-hint">Click a difference · H = hint · P = pause · M = sound</span>
+  </footer>
+
+  <div id="screen-title" class="overlay">
+    <div class="card title-card">
+      <div class="gems">💎🔶💎</div>
+      <h1>GEM RUSH</h1>
+      <p class="subtitle">Spot the Difference</p>
+      <p class="tagline">Two pictures, nearly twins. Hunt every hidden change across three
+        jewel-bright scenes — the Crystal Temple, the Clockmaker's Workshop and the
+        Firefly Garden. Find them all before the clock runs out!</p>
+      <div id="level-cards" class="level-cards"></div>
+      <div class="title-btns">
+        <button id="start-btn" class="btn big">▶ Play from Level 1</button>
+        <button id="how-btn" class="btn big ghost">How to play</button>
+      </div>
+      <div id="how-box" class="how-box hidden">
+        <p>🖱️ <b>Click</b> a difference on either picture to mark it with a golden ring and a tick.</p>
+        <p>🔍 Hover a picture to open the <b>magnifier</b> and zoom in 2×.</p>
+        <p>💡 Stuck? <b>Hint</b> (H) rings a difference — but it costs 50 points and your streak.</p>
+        <p>♥ A wrong click costs a heart. Lose all 3 hearts — or run out of time — and the level ends.</p>
+        <p>⭐ Clear fast with all hearts for 3 stars. Streaks multiply your score!</p>
+      </div>
+      <p class="foot">3 scenes · 21 differences · no two pictures alike</p>
+    </div>
+  </div>
+
+  <div id="screen-pause" class="overlay hidden">
+    <div class="card">
+      <h2>Paused</h2>
+      <p class="tagline">Take a breath — the gems will wait.</p>
+      <div class="title-btns">
+        <button id="resume-btn" class="btn big">▶ Resume</button>
+        <button id="quit-btn" class="btn big ghost">Back to Title</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="screen-level" class="overlay hidden">
+    <div class="card">
+      <h2 id="level-title">Cleared!</h2>
+      <div id="level-stars" class="stars">★★★</div>
+      <div id="level-stats" class="stats"></div>
+      <div class="title-btns">
+        <button id="level-next" class="btn big">Next →</button>
+        <button id="level-menu-btn" class="btn big ghost">Title Screen</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="screen-win" class="overlay hidden">
+    <div class="card win-card">
+      <h2>All Scenes Cleared!</h2>
+      <div id="win-grade" class="grade">S</div>
+      <p id="win-blurb" class="tagline">Flawless gem hunter!</p>
+      <div id="win-stars" class="stars gold">★★★ 9/9 stars</div>
+      <div id="win-stats" class="stats"></div>
+      <div id="win-rows" class="win-rows"></div>
+      <div class="title-btns">
+        <button id="again-btn" class="btn big">↻ Play Again</button>
+        <button id="win-menu-btn" class="btn big ghost">Title Screen</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
